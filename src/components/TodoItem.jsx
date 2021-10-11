@@ -7,14 +7,14 @@ const TodoItem = ({ todo }) => {
   const [name, setName] = useState(todo.name)
   let dispatch = useDispatch()
   return (
-    <div>
-      <div className="row mx-2 align-items-center">
-        <div>#{todo.id}</div>
-        <div className="col">
+    <div className="ui eight relaxed column grid">
+      <div className="row">
+        <div className="column ">#{todo.id}</div>
+        <div className="column">
           {editable ? (
             <input
               type="text"
-              className="form-control"
+              className="ui big icon input"
               placeholder={name}
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -24,7 +24,7 @@ const TodoItem = ({ todo }) => {
           )}
         </div>
         <button
-          className="btn btn-primary m-2"
+          className="ui primary button "
           onClick={() => {
             if (editable) {
               dispatch(updateTodo({ ...todo, name }))
@@ -36,7 +36,7 @@ const TodoItem = ({ todo }) => {
           {editable ? 'Update' : 'Edit'}
         </button>
         <button
-          className="btn btn-danger m-2"
+          className="ui button red "
           onClick={() => dispatch(deleteTodo(todo.id))}
         >
           Delete

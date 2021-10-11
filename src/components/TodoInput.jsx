@@ -8,27 +8,28 @@ function TodoInput() {
   let dispatch = useDispatch()
   return (
     <div>
-      <div className="row m-2">
-        <input
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          type="text"
-          className="col form-control"
-        />
-        <button
-          onClick={() => {
-            dispatch(
-              addTodo({
-                id: uuid(),
-                name,
-              }),
-            )
-            setName('')
-          }}
-          className="btn btn-primary mx-2"
-        >
-          Add
-        </button>
+      <div className="ui center aligned basic segment">
+        <div className="ui left icon action input">
+          <input
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            type="text"
+          />
+          <button
+            onClick={() => {
+              dispatch(
+                addTodo({
+                  id: uuid(),
+                  name,
+                }),
+              )
+              setName('')
+            }}
+            className="ui blue submit button"
+          >
+            Add
+          </button>
+        </div>
       </div>
     </div>
   )
